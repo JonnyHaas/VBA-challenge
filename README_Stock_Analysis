@@ -1,0 +1,119 @@
+# Module 2 Challenge
+
+Included in my repository are the following files:
+
+2018_results.png
+2019_results.png
+2020_rusults.png
+Multiple_year_stock_data_Final.xlsm
+StockAnalysis().vbs
+
+Specifying Code Source:
+
+Chat GPT
+Discussion with Classmate - Bobbi Fletchall
+
+The Module 2 Challenge is to generate VBA Scripting to analyze generated stock market data.  The data sets provided were from two different samples.  The first data set was a smaller sample which would run and proof out much faster than the actual data set.  Both the sample and actual data sets included three worksheets within one workbook. 
+
+In review of the images provided, it was apparent, the first goal would be to obtain the "Easy Solution", which would summarize the total stock volume for each Ticker Symbol in alphabetical order.  The output could be placed on same worksheet as orginal data or on a new one.
+
+The second goal would be to add "Yearly Change" and "Percent Change" to the output columns as noted in the moderate_solution image.
+
+The Third and final goal would be to identify the Ticker with the Greatest % Increase, the Ticker with the Greatest % Decrease, and the Ticker with the Greatest Total Volume.
+
+Additionally, the VBA Scripting should automatically run on all worksheets within the workbook.
+
+## I started the scripting following class examples and breaking down the tasks required to complete the project.  After numerous hours of staring at my monitor, I came to the conclusion, I must develop a different stragety.
+
+
+### In order to achieve the above goals and also align with my personal goals for enrolling in the Data Analytics Class, I reviewed my "Reflection on why I enrolled in KU Data Analytics Bootcamp". Below is the sentenence of my "Reflection"
+
+"I enrolled in the class to gain a high level understanding of modern data analytics to be able to direct and communicate with data analysis and programmers within my company." 
+
+With this in mind, I had also heard that "Chat GPT" is a great tool for answers on how to learn just about anything.  Thus my goal was to effectively communicate with "Chat GPT" to efficiently write the script for Challenge 2.
+
+I tried asking the questions a few times and would get answers, but the code/script would not run.  Then I remembered the Peanut and Jelly Sandwich example Cait had used in class.  
+
+My first systematic question to Chat GPT was to define the question to answer the "easy solution" as follows:
+
+"Write code in VBA for excel workbook to summarize total stock volume purchased per ticker symbol. Single row for each ticker symbol placed in alphabetical order. Assume column headers are in row 1. Ticker symbols are in column 1. Stock volume purchased is in Column 7. There are multiple worksheets in the workbook which need to be summarized. The output should be in the worksheet "A". The output for Tickers shall be in column 9. The column header for column 9 shall be "Ticker". The output for Total Stock Volume shall be in Column 10. The column header for Column 10 shall be "Total Stock Volume"
+
+To my surprize, Chat GPT provided script which ran.  This gave me a basis to build from.  I didn't realize it at the time, but I had misunderstood the need to summarize all of the worksheets in the workbook as one sum.  The script should automatically run on each worksheet, but summarize them seperately.
+
+As I progressed along, I started writing down definitions to be able to systematically define exactly what I wanted to state:
+
+Definitions:
+Integer – whole number with maximum of 5 digits
+Long -  whole number with maximum of 10 digits
+Double – Decimal number  of almost infinite digits both before and after the decimal.
+
+Existing Data Columns
+Ticker A or 1
+Date B or 2
+Open C or 3
+High D or 4
+Low E or 5
+Close F or 6
+Volume G or 7
+Space
+Ticker I or 9
+Yearly Change J or 10
+Percent Change K or 11
+Total Stock Volume L or 12
+Range O2 – Text “Greatest % Increase” – could also be called cell (15,2)
+Range O3 – Text “Greatest % Decrease” – could also be called cell (15,3)
+Range O4 – Text “Greatest Total Volume” – could also be called cell (15,4)
+Column Header for Column P – “Ticker” – could also be called cell (16,1)
+Column Header for Column Q – “Value” – could also be called cell (17,1)
+
+My second and third systematic questions to Chat GPT were to add "Yearly Change" and "Percent Change" to my output.  Below is a combination of my Chat GPT questions #2 and #3:
+
+Write code in VBA for excel worksheet to summarize total stock volume purchased per ticker symbol. Single row for each ticker symbol placed in alphabetical order. Assume column headers are in row 1. Ticker symbols are in column 1. The date for each stock purchase is in column 2. The opening price for each stock is in column 3. The closing price for each stock is in Column 6. Stock volume purchased is in Column 7. The output worksheet shall be the same as the current worksheet. The output for Tickers shall be in column 9. The column header for column 9 shall be "Ticker".  Output the yearly change for each stock from beginning of year opening price to end of year closing price in column 10.  The heading for Column 10 should be “Yearly Change”.  The percent change calculated in column 11 shall be the “Yearly Change” in Column 10 divided by the beginning of year opening price in column 3.  Column 11 shall be displayed as percentage.  The column header for column 11 shall be “Percent Change”.   The output for Total Stock Volume shall be in Column 12. The column header for Column 12 shall be "Total Stock Volume" 
+
+The script was outputting data exactly as I wanted it to and the numbers matched my mathmatical checks as well as images provided.
+
+My fourth systematic question to Chat GPT was to add script to highlight "Percent Change" column to red if negative and green if positive.
+
+Write code in VBA for excel worksheet to summarize total stock volume purchased per ticker symbol. Single row for each ticker symbol placed in alphabetical order. Assume column headers are in row 1. Ticker symbols are in column 1. The date for each stock purchase is in column 2. The opening price for each stock is in column 3. The closing price for each stock is in Column 6. Stock volume purchased is in Column 7. The output worksheet shall be the same as the current worksheet. The output for Tickers shall be in column 9. The column header for column 9 shall be "Ticker".  Output the yearly change for each stock from beginning of year opening price to end of year closing price in column 10.  The heading for Column 10 should be “Yearly Change”.  The percent change calculated in column 11 shall be the “Yearly Change” in Column 10 divided by the beginning of year opening price in column 3.  Column 11 shall be displayed as percentage.  The column header for column 11 shall be “Percent Change”.  If Column 11 is negative percentage, highlight it excel standard color red, else if column 11 is positive percentage, highlight it excel standard color green. The output for Total Stock Volume shall be in Column 12. The column header for Column 12 shall be "Total Stock Volume" 
+
+The script outputted exactly as I wanted and the numbers match my mathmatical checks as well as the images provided.
+
+My last and final systematic question to Chat GPT was to add code to determine the Ticker with "Greatest % Increase", "Greatest % Decrease", and "Greatest Total Volume".  I also wanted the code to run analysis on all worksheets within the workbook.
+
+In order to accomplish final goal, I needed to define several cell locations.  Below are my definitions:
+
+Range O2 – Text “Greatest % Increase” – could also be called cell (2,15)
+Range O3 – Text “Greatest % Decrease” – could also be called cell (3,15)
+Range O4 – Text “Greatest Total Volume” – could also be called cell (4,15)
+Column Header for Column P – “Ticker” – could also be called cell (1,16)
+Column Header for Column Q – “Value” – could also be called cell (1,17)
+Range O2 – Text “Greatest % Increase” – could also be called cell (2,15)
+Range P2 – Ticker Symbol with “greatest % Increase” value – could also be called cell (2,16)
+Range Q3 – Value of “greatest % increase” – could also be called cell (2,17)
+Range O3 – Text “Greatest % Decrease” – could also be called cell (3,15)
+Range P3 – Ticker Symbol with “greatest % decrease” value – could also be called cell (3,16)
+Range Q3 – Value of “greatest % increase” – could also be called cell (3,17)
+Range O4 – Text “Greatest Total Volume” – could also be called cell (4,15)
+Range P4 – Ticker Symbol with “greatest % decrease” value – could also be called cell (4,16)
+Range Q4 – Value of “greatest % increase” – could also be called cell (4,17)
+
+Below is my final systematic question to Chat GPT:
+
+Write code in VBA for excel worksheet to summarize total stock volume purchased per ticker symbol. Single row for each ticker symbol placed in alphabetical order. Assume column headers are in row 1. Ticker symbols are in column 1. The date for each stock purchase is in column 2. The opening price for each stock is in column 3. The closing price for each stock is in Column 6. Stock volume purchased is in Column 7. The output worksheet shall be the same as the current worksheet. The output for Tickers shall be in column 9. The column header for column 9 shall be "Ticker".  Output the yearly change for each stock from beginning of year opening price to end of year closing price in column 10.  The heading for Column 10 should be “Yearly Change”.  The percent change calculated in column 11 shall be the “Yearly Change” in Column 10 divided by the beginning of year opening price in column 3.  Column 11 shall be displayed as percentage.  The column header for column 11 shall be “Percent Change”.  If Column 11 is negative percentage, highlight it excel standard color red, else if column 11 is positive percentage, highlight it excel standard color green. The output for Total Stock Volume shall be in Column 12. The column header for Column 12 shall be "Total Stock Volume".  Insert text into Cell (2,15) “Greatest % Increase”.  Insert text into Cell (3,15) “Greatest % Decrease”.  Insert text into Cell (4,15) “Greatest Total Volume”.  The column header for Column16 shall be “Ticker”.  The column header for Column 17 shall be “Value”. The code should then run analysis on all worksheets within the workbook.
+
+The script outputted results which match the the images provided exactly.  The script also automatically outputted results for all of the worksheets at once.
+
+Included in my repository are the following files:
+
+2018_results.png
+2019_results.png
+2020_rusults.png
+Multiple_year_stock_data_Final.xlsm
+StockAnalysis().vbs
+
+Conclusion:
+
+The Module 2 Challenge was difficult, especially with no prior knowledge of programming. I'm not sure I could have completed it without utilizing Chat GPT as a source to generate the script.  I do feel like I really learned alot about the modern process of writing code and how to generate it efficiently through communication with the internet resources readily available today.   I am also absolutely amazed with the ability to analyze data in ways I never imaged I could do myself.  To me, the amazing part of analyzing the data lies ahead of in this class as we learn to use data to generate models for forcasting the future.      
+
+
+
